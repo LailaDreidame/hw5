@@ -123,3 +123,15 @@
 **What was lacking after the first:** My answers gave my opinions but didn't point to specific tickets or numbers, and question 3 didn't say what one agent could do alone, nor did question 5 name the tools I'd need. So I asked for each answer to be tied to tickets 101, 102 and 103 and the Cash tab, then added the single-agent idea, the inventory reorder tool, and the color and similar-items tools, and a low-cash alert to the Boss myself.
 
 ---
+
+## Problem 11 — Submit to GitHub
+
+**Prompt:**
+> Okay, here we go. Problem eleven. And problem 11 is we're going to submit to GitHub. So we're going to push our code to a public GitHub repository so graders can clone it. Submit the repo URL to Canvas and also put it in output/github.url.txt. Do not push my real.env to the GitHub repo. Do include both database files under data/. The original and our working copy. So graders could run our app easily. Here is how the expected file layout should be in these following screenshots. You can pull the last two screenshots I took. So you can see how the file layout should be. README should explain copy original DB to the working copy when you need a clean run. Start MCP server, start fast API backend, start the React board, reset the DB before a full 3-ticket run.
+
+**Follow-up:**
+> https://github.com/LailaDreidame/hw5
+
+**What was lacking after the first:** The first prompt didn't say which GitHub repository to use, so I created the empty public repo myself and sent its URL so the code could be pushed.
+
+---
