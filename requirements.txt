@@ -1,0 +1,8 @@
+# Everything the MCP server and the FastAPI backend need (Python 3.12).
+# Install from hw5/:  pip install -r requirements.txt
+fastmcp>=2.0.0
+pydantic-ai-slim[openai,mcp]>=1.0.0
+openai>=1.0.0
+python-dotenv>=1.0.1
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0

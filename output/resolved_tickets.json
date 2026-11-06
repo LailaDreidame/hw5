@@ -1,0 +1,146 @@
+{
+  "run": "Problem 9 full run after resetting data/campus_customs_new.db (reset 2026-11-06T04:57:42Z)",
+  "shop_date": "2026-08-31",
+  "checking": {
+    "start": 3400.0,
+    "total_paid": 3248.0,
+    "end": 152.0,
+    "math": "3400.00 - 840.00 - 8.00 - 2400.00 = 152.00",
+    "matches_cash_accounts": true
+  },
+  "tickets": [
+    {
+      "id": 101,
+      "type": "customer_order",
+      "requester": "Tauhid Zaman",
+      "final_status": "resolved",
+      "outcome": "Size S tee was out of stock and Bulldog Print Co was blocked by overdue invoice 501. A human paid the $840 invoice and the $8 restock order for 1 tee size S; Bulldog can now ship (5-day lead time). Draft to Tauhid saved, not sent.",
+      "agents": {
+        "boss": "Read the ticket, checked the date and cash, sent Inventory, Accounting and Customer Service their tasks in one step, then set the ticket to waiting_approval with the two approval ids.",
+        "inventory": "Found 0 in size S (short 1), picked Bulldog Print Co (5-day lead time), and flagged invoice 501 as the blocker; told Accounting directly. Answered follow-up checks from Accounting and Customer Service.",
+        "accounting": "Confirmed invoice 501 ($840, 3 days overdue) fit the cash, then requested payment of invoice 501 (approval 2) and a purchase order for 1 tee size S at $8 (approval 1), noting the order stays blocked until the invoice is paid.",
+        "facilities": "Not called.",
+        "customer_service": "Checked stock with Inventory, then saved draft 1 to Tauhid Zaman saying size S is out of stock and a date will be confirmed; no date promised."
+      },
+      "human_approvals": [
+        {
+          "approval_id": 2,
+          "kind": "invoice",
+          "what": "Invoice 501 (Rush reprint CC-TEE-WHITE S)",
+          "payee": "Bulldog Print Co",
+          "amount": 840.0,
+          "prepared_by": "accounting",
+          "decision": "approved",
+          "approved_by": "Laila",
+          "signed_at_utc": "2026-11-06T05:00:05.789+00:00",
+          "payment_id": 1,
+          "paid_at_shop_date": "2026-08-31"
+        },
+        {
+          "approval_id": 1,
+          "kind": "purchase_order",
+          "what": "Purchase order: 1 x CC-TEE-WHITE size S @ $8.00",
+          "payee": "Bulldog Print Co",
+          "amount": 8.0,
+          "prepared_by": "accounting",
+          "decision": "approved",
+          "approved_by": "Laila",
+          "signed_at_utc": "2026-11-06T05:00:11.074+00:00",
+          "payment_id": 2,
+          "paid_at_shop_date": "2026-08-31"
+        }
+      ],
+      "resolved_by": "Automatically when Laila signed the last approval",
+      "cash_change": -848.0,
+      "drafts": [
+        1
+      ],
+      "agent_run": {
+        "run_id": "4293ff9a2384",
+        "status": "done",
+        "model": "gpt-6-luna",
+        "model_calls": 27,
+        "tool_calls": 42,
+        "total_tokens": 71688,
+        "delegations": 6
+      }
+    },
+    {
+      "id": 102,
+      "type": "rent_notice",
+      "requester": "Elm City Properties",
+      "final_status": "resolved",
+      "outcome": "Lease 1 rent of $2,400 to Elm City Properties (due 2026-09-02) was requested by Accounting and paid after human approval; the lease's next due date moved to 2026-10-02.",
+      "agents": {
+        "boss": "Read the ticket, asked Facilities to confirm the lease, then asked Accounting to prepare the rent payment; set the ticket to waiting_approval.",
+        "inventory": "Not called.",
+        "accounting": "Checked cash, past payments and the approval queue, then requested the rent payment for lease 1 (approval 3); noted $152 would remain.",
+        "facilities": "Read lease 1: $2,400 to Elm City Properties, due 2026-09-02, 2 days after shop today, not overdue; recommended paying it through Accounting.",
+        "customer_service": "Not called."
+      },
+      "human_approvals": [
+        {
+          "approval_id": 3,
+          "kind": "rent",
+          "what": "Rent for lease 1 (Chapel Street shop), due 2026-09-02",
+          "payee": "Elm City Properties",
+          "amount": 2400.0,
+          "prepared_by": "accounting",
+          "decision": "approved",
+          "approved_by": "Laila",
+          "signed_at_utc": "2026-11-06T05:00:45.987+00:00",
+          "payment_id": 3,
+          "paid_at_shop_date": "2026-08-31"
+        }
+      ],
+      "resolved_by": "Automatically when Laila signed the approval",
+      "cash_change": -2400.0,
+      "drafts": [],
+      "agent_run": {
+        "run_id": "e6b9cdc7658c",
+        "status": "done",
+        "model": "gpt-6-luna",
+        "model_calls": 12,
+        "tool_calls": 13,
+        "total_tokens": 30601,
+        "delegations": 2
+      }
+    },
+    {
+      "id": 103,
+      "type": "price_override",
+      "requester": "Yale AI Club",
+      "final_status": "resolved",
+      "outcome": "Boss decided a $50/hoodie bulk price (13.8% off $58 list, $28 margin over $22 cost). Only 8 of 20 in size M; no purchase order because the order isn't confirmed (and the $264 restock wouldn't fit the $152 left). Draft to Yale AI Club saved, not sent. No money moved.",
+      "agents": {
+        "boss": "Asked Accounting for margins first, then Inventory and Customer Service; chose $50 per hoodie; left the ticket in_progress pending the club's confirmation.",
+        "inventory": "Found 8 hoodies in size M (short 12); Bulldog Print Co could restock in 5 days with no unpaid invoice blocking it.",
+        "accounting": "Ran check_margin at $55, $50 and $45 for 20 hoodies and recommended $50 ($28 margin per unit, above the $22 cost).",
+        "facilities": "Not called.",
+        "customer_service": "Saved draft 2 to Yale AI Club saying the discount and availability are being confirmed (did not quote the price)."
+      },
+      "human_approvals": [],
+      "human_actions": [
+        {
+          "action": "marked resolved",
+          "by": "Laila",
+          "at_utc": "2026-11-06T05:01:21.413+00:00"
+        }
+      ],
+      "resolved_by": "Laila marked it resolved on the board",
+      "cash_change": 0.0,
+      "drafts": [
+        2
+      ],
+      "agent_run": {
+        "run_id": "e45898e782e4",
+        "status": "done",
+        "model": "gpt-6-luna",
+        "model_calls": 13,
+        "tool_calls": 17,
+        "total_tokens": 32813,
+        "delegations": 3
+      }
+    }
+  ]
+}

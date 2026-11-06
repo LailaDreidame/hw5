@@ -1,0 +1,24 @@
+{
+  "server": "campus-customs (FastMCP, stdio, mcp_server/server.py — named mcp_server.py at the time of this test), called as live MCP tools by Claude Code",
+  "config": ".mcp.json registers campus-customs; tools read data/campus_customs_new.db",
+  "tests": [
+    {
+      "prompt": "And just going to ask for good measure, for ticket 101, I want to make sure that there's a small in the bulldog T.",
+      "tool": "check_stock",
+      "arguments": {"sku": "CC-TEE-WHITE", "size": "S", "qty_needed": 1},
+      "output": {"found":true,"sku":"CC-TEE-WHITE","name":"Classic Bulldog Tee","size":"S","on_hand":0,"location":"Aisle B","unit_cost":8,"list_price":28,"qty_needed":1,"shortfall":1,"can_fill_from_stock":false,"restock_cost_of_shortfall":8}
+    },
+    {
+      "prompt": "then for invoice 501, I'm curious about the vendor's invoice . What's in there?",
+      "tool": "get_invoice",
+      "arguments": {"invoice_id": 501},
+      "output": {"found":true,"invoice_id":501,"amount":840,"due_date":"2026-08-28","status":"open","description":"Rush reprint CC-TEE-WHITE S","vendor_id":1,"vendor_name":"Bulldog Print Co","vendor_specialty":"apparel reprint","vendor_lead_days":5,"shop_today":"2026-08-31","is_open":true,"days_overdue":3,"vendor_open_invoices":[{"id":501,"amount":840,"due_date":"2026-08-28"}],"vendor_open_total":840,"vendor_will_ship":false}
+    },
+    {
+      "prompt": "And then for ticket 102, I'm wondering what the terms are for the shop's lease and if there's any actions I need to take in the next month or two to ensure that we are in good standing with our lease.",
+      "tool": "get_lease",
+      "arguments": {"lease_id": 1},
+      "output": {"found":true,"lease_id":1,"space_name":"Chapel Street shop","landlord":"Elm City Properties","monthly_rent":2400,"next_due":"2026-09-02","notes":null,"shop_today":"2026-08-31","days_until_due":2,"is_overdue":false}
+    }
+  ]
+}
